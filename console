@@ -1,0 +1,30 @@
+#!/usr/bin/env php
+<?php
+
+use App\Application;
+use Symfony\Component;
+
+require __DIR__ . '/vendor/autoload.php';
+
+$container = new Component\DependencyInjection\ContainerBuilder();
+
+$fileLoader = new Component\DependencyInjection\Loader\PhpFileLoader(
+        $container,
+        new Component\Config\FileLocator(__DIR__ . '/config')
+);
+
+try {
+    $fileLoader->load('services.php');
+} catch (Exception $e) {
+    print($e->getMessage());
+}
+
+$container->compile();
+
+try {
+    $application = $container->get(Application::class);
+} catch (Exception $e) {
+    print($e->getMessage());
+}
+
+$application->run();

@@ -1,0 +1,49 @@
+{
+    "type": "project",
+    "license": "proprietary",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.1",
+        "symfony/console": "^6.2",
+        "symfony/dependency-injection": "^6.2",
+        "symfony/config": "^6.2",
+        "ext-fileinfo": "*",
+        "symfony/messenger": "^6.2",
+        "ext-xmlreader": "*",
+        "ext-simplexml": "*",
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^1.9",
+        "squizlabs/php_codesniffer": "^3.7",
+        "phpunit/phpunit": "^9.5"
+    },
+    "scripts": {
+        "lint": [
+            "@php vendor/bin/phpcs",
+            "@php vendor/bin/phpstan analyse -c phpstan.neon"
+        ],
+        "lint:fix": [
+            "@php vendor/bin/phpcbf"
+        ],
+        "test": [
+            "@php ./vendor/bin/phpunit tests"
+        ],
+        "build": [
+            "@composer install",
+            "@composer test"
+
+        ]
+    }
+}
