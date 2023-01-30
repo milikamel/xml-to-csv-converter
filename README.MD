@@ -1,6 +1,12 @@
-# XML Data Importer
+# XML TO CSV CONVERTER
 ![Packagist PHP Version Support](https://img.shields.io/packagist/dependency-v/symfony/symfony/php)
 ![SymfonyVersion](https://img.shields.io/badge/symfony%20version-%5E6.2-green)
+
+
+## Description
+
+This project is XML to CVS converter, it imports a XML file, reads it in an optimised way then map it and convert it to a CSV file.
+
 
 ## Installation and configuration
 
